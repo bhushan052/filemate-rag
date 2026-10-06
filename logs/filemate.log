@@ -1,0 +1,823 @@
+2026-10-06 00:28:30,659 | INFO | filemate | ========================================
+2026-10-06 00:28:30,660 | INFO | filemate | FileMate application started
+2026-10-06 00:28:30,660 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 00:28:30,660 | INFO | filemate | ========================================
+2026-10-06 00:28:32,170 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 00:28:32,422 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 00:28:36,931 | INFO | filemate | UPLOAD STARTED | filename=RO_LEAVE RULES.pdf
+2026-10-06 00:28:36,932 | INFO | filemate | File received: RO_LEAVE RULES.pdf (968028 bytes)
+2026-10-06 00:28:36,934 | INFO | filemate | Extracting text...
+2026-10-06 00:28:38,650 | INFO | filemate | Extracted 38664 characters
+2026-10-06 00:28:38,651 | INFO | filemate | Creating chunks...
+2026-10-06 00:28:38,655 | INFO | filemate | Created 142 chunks
+2026-10-06 00:28:38,655 | INFO | filemate | Creating first embedding...
+2026-10-06 00:28:39,736 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2026-10-06 00:28:39,737 | ERROR | filemate | Document processing failed: Error code: 401 - {'error': {'message': 'Your API key has expired. Create a new API key to continue.', 'type': 'invalid_request_error', 'code': 'expired_secret_key', 'param': None}, 'status': 401}
+Traceback (most recent call last):
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\main.py", line 280, in upload_document
+    first_vector = create_embedding(
+        chunks[0]
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\services\embeddings.py", line 23, in create_embedding
+    response = client.embeddings.create(
+        model=EMBEDDING_MODEL,
+        input=text
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\resources\embeddings.py", line 113, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/embeddings",
+        ^^^^^^^^^^^^^^
+    ...<9 lines>...
+        cast_to=CreateEmbeddingResponse,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1440, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Your API key has expired. Create a new API key to continue.', 'type': 'invalid_request_error', 'code': 'expired_secret_key', 'param': None}, 'status': 401}
+2026-10-06 00:28:39,741 | INFO | filemate | Temporary file removed
+2026-10-06 10:51:23,909 | INFO | filemate | ========================================
+2026-10-06 10:51:23,909 | INFO | filemate | FileMate application started
+2026-10-06 10:51:23,909 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 10:51:23,909 | INFO | filemate | ========================================
+2026-10-06 10:51:25,635 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 10:51:25,647 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 10:51:40,526 | INFO | filemate | UPLOAD STARTED | filename=RO_LEAVE RULES.pdf
+2026-10-06 10:51:40,527 | INFO | filemate | File received: RO_LEAVE RULES.pdf (968028 bytes)
+2026-10-06 10:51:40,528 | INFO | filemate | Extracting text...
+2026-10-06 10:51:41,565 | INFO | filemate | Extracted 38664 characters
+2026-10-06 10:51:41,565 | INFO | filemate | Creating chunks...
+2026-10-06 10:51:41,568 | INFO | filemate | Created 142 chunks
+2026-10-06 10:51:41,568 | INFO | filemate | Creating first embedding...
+2026-10-06 10:51:42,484 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2026-10-06 10:51:42,485 | ERROR | filemate | Document processing failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************hqAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Traceback (most recent call last):
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\main.py", line 280, in upload_document
+    first_vector = create_embedding(
+        chunks[0]
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\services\embeddings.py", line 23, in create_embedding
+    response = client.embeddings.create(
+        model=EMBEDDING_MODEL,
+        input=text
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\resources\embeddings.py", line 113, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/embeddings",
+        ^^^^^^^^^^^^^^
+    ...<9 lines>...
+        cast_to=CreateEmbeddingResponse,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1440, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************hqAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-10-06 10:51:42,489 | INFO | filemate | Temporary file removed
+2026-10-06 22:11:15,635 | INFO | filemate | ========================================
+2026-10-06 22:11:15,635 | INFO | filemate | FileMate application started
+2026-10-06 22:11:15,636 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:11:15,636 | INFO | filemate | ========================================
+2026-10-06 22:11:17,464 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:11:17,483 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:12:01,265 | INFO | filemate | UPLOAD STARTED | filename=RO_LEAVE RULES.pdf
+2026-10-06 22:12:01,266 | INFO | filemate | File received: RO_LEAVE RULES.pdf (968028 bytes)
+2026-10-06 22:12:01,268 | INFO | filemate | Extracting text...
+2026-10-06 22:12:02,941 | INFO | filemate | Extracted 38664 characters
+2026-10-06 22:12:02,941 | INFO | filemate | Creating chunks...
+2026-10-06 22:12:02,947 | INFO | filemate | Created 142 chunks
+2026-10-06 22:12:02,947 | INFO | filemate | Creating first embedding...
+2026-10-06 22:12:05,970 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2026-10-06 22:12:05,972 | ERROR | filemate | Document processing failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************hqAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Traceback (most recent call last):
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\main.py", line 280, in upload_document
+    first_vector = create_embedding(
+        chunks[0]
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\services\embeddings.py", line 23, in create_embedding
+    response = client.embeddings.create(
+        model=EMBEDDING_MODEL,
+        input=text
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\resources\embeddings.py", line 113, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/embeddings",
+        ^^^^^^^^^^^^^^
+    ...<9 lines>...
+        cast_to=CreateEmbeddingResponse,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1440, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************hqAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-10-06 22:12:05,998 | INFO | filemate | Temporary file removed
+2026-10-06 22:12:07,625 | INFO | filemate | UPLOAD STARTED | filename=RO_LEAVE RULES.pdf
+2026-10-06 22:12:07,626 | INFO | filemate | File received: RO_LEAVE RULES.pdf (968028 bytes)
+2026-10-06 22:12:07,629 | INFO | filemate | Extracting text...
+2026-10-06 22:12:09,134 | INFO | filemate | Extracted 38664 characters
+2026-10-06 22:12:09,134 | INFO | filemate | Creating chunks...
+2026-10-06 22:12:09,138 | INFO | filemate | Created 142 chunks
+2026-10-06 22:12:09,138 | INFO | filemate | Creating first embedding...
+2026-10-06 22:12:09,878 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2026-10-06 22:12:09,879 | ERROR | filemate | Document processing failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************hqAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Traceback (most recent call last):
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\main.py", line 280, in upload_document
+    first_vector = create_embedding(
+        chunks[0]
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\services\embeddings.py", line 23, in create_embedding
+    response = client.embeddings.create(
+        model=EMBEDDING_MODEL,
+        input=text
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\resources\embeddings.py", line 113, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/embeddings",
+        ^^^^^^^^^^^^^^
+    ...<9 lines>...
+        cast_to=CreateEmbeddingResponse,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1440, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************hqAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-10-06 22:12:09,881 | INFO | filemate | Temporary file removed
+2026-10-06 22:23:24,830 | INFO | filemate | UPLOAD STARTED | filename=RO_LEAVE RULES.pdf
+2026-10-06 22:23:24,831 | INFO | filemate | File received: RO_LEAVE RULES.pdf (968028 bytes)
+2026-10-06 22:23:24,832 | INFO | filemate | Extracting text...
+2026-10-06 22:23:26,171 | INFO | filemate | Extracted 38664 characters
+2026-10-06 22:23:26,171 | INFO | filemate | Creating chunks...
+2026-10-06 22:23:26,176 | INFO | filemate | Created 142 chunks
+2026-10-06 22:23:26,176 | INFO | filemate | Creating first embedding...
+2026-10-06 22:23:27,107 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2026-10-06 22:23:27,108 | ERROR | filemate | Document processing failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************hqAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Traceback (most recent call last):
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\main.py", line 280, in upload_document
+    first_vector = create_embedding(
+        chunks[0]
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\app\services\embeddings.py", line 23, in create_embedding
+    response = client.embeddings.create(
+        model=EMBEDDING_MODEL,
+        input=text
+    )
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\resources\embeddings.py", line 113, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/embeddings",
+        ^^^^^^^^^^^^^^
+    ...<9 lines>...
+        cast_to=CreateEmbeddingResponse,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1440, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\.venv\Lib\site-packages\openai\_base_client.py", line 1213, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************hqAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-10-06 22:23:27,110 | INFO | filemate | Temporary file removed
+2026-10-06 22:25:15,266 | INFO | filemate | ========================================
+2026-10-06 22:25:15,266 | INFO | filemate | FileMate application started
+2026-10-06 22:25:15,266 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:25:15,266 | INFO | filemate | ========================================
+2026-10-06 22:25:16,925 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:25:17,097 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:25:35,787 | INFO | filemate | ========================================
+2026-10-06 22:25:35,787 | INFO | filemate | FileMate application started
+2026-10-06 22:25:35,787 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:25:35,788 | INFO | filemate | ========================================
+2026-10-06 22:25:37,267 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:25:37,678 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:25:45,214 | INFO | filemate | ========================================
+2026-10-06 22:25:45,214 | INFO | filemate | FileMate application started
+2026-10-06 22:25:45,215 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:25:45,215 | INFO | filemate | ========================================
+2026-10-06 22:25:46,640 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:25:46,973 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:28:59,628 | INFO | filemate | UPLOAD STARTED | filename=RO_LEAVE RULES.pdf
+2026-10-06 22:28:59,629 | INFO | filemate | File received: RO_LEAVE RULES.pdf (968028 bytes)
+2026-10-06 22:28:59,631 | INFO | filemate | Extracting text...
+2026-10-06 22:29:01,283 | INFO | filemate | Extracted 38664 characters
+2026-10-06 22:29:01,284 | INFO | filemate | Creating chunks...
+2026-10-06 22:29:01,288 | INFO | filemate | Created 142 chunks
+2026-10-06 22:29:01,288 | INFO | filemate | Creating first embedding...
+2026-10-06 22:29:06,150 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:06,153 | INFO | filemate | Embedding dimension: 1536
+2026-10-06 22:29:06,153 | INFO | filemate | Creating/checking Qdrant collection...
+2026-10-06 22:29:07,145 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2026-10-06 22:29:07,157 | INFO | filemate | Processing chunk 1/142
+2026-10-06 22:29:08,183 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:08,184 | INFO | filemate | Processing chunk 2/142
+2026-10-06 22:29:10,037 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:10,718 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:10,719 | INFO | filemate | Processing chunk 3/142
+2026-10-06 22:29:11,009 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:11,464 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:11,465 | INFO | filemate | Processing chunk 4/142
+2026-10-06 22:29:11,871 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:12,567 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:12,567 | INFO | filemate | Processing chunk 5/142
+2026-10-06 22:29:12,998 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:13,610 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:13,611 | INFO | filemate | Processing chunk 6/142
+2026-10-06 22:29:13,881 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:14,651 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:14,652 | INFO | filemate | Processing chunk 7/142
+2026-10-06 22:29:14,944 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:15,354 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:15,355 | INFO | filemate | Processing chunk 8/142
+2026-10-06 22:29:15,656 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:16,030 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:16,031 | INFO | filemate | Processing chunk 9/142
+2026-10-06 22:29:16,296 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:16,686 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:16,687 | INFO | filemate | Processing chunk 10/142
+2026-10-06 22:29:17,008 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:17,610 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:17,611 | INFO | filemate | Processing chunk 11/142
+2026-10-06 22:29:17,898 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:18,273 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:18,274 | INFO | filemate | Processing chunk 12/142
+2026-10-06 22:29:18,540 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:18,924 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:18,925 | INFO | filemate | Processing chunk 13/142
+2026-10-06 22:29:19,242 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:19,766 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:19,766 | INFO | filemate | Processing chunk 14/142
+2026-10-06 22:29:20,031 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:20,403 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:20,404 | INFO | filemate | Processing chunk 15/142
+2026-10-06 22:29:20,682 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:21,122 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:21,123 | INFO | filemate | Processing chunk 16/142
+2026-10-06 22:29:21,383 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:21,759 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:21,760 | INFO | filemate | Processing chunk 17/142
+2026-10-06 22:29:22,047 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:22,419 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:22,422 | INFO | filemate | Processing chunk 18/142
+2026-10-06 22:29:22,694 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:23,077 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:23,078 | INFO | filemate | Processing chunk 19/142
+2026-10-06 22:29:23,359 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:23,560 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:23,561 | INFO | filemate | Processing chunk 20/142
+2026-10-06 22:29:23,834 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:24,035 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:24,036 | INFO | filemate | Processing chunk 21/142
+2026-10-06 22:29:24,299 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:24,497 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:24,498 | INFO | filemate | Processing chunk 22/142
+2026-10-06 22:29:24,764 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:24,959 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:24,960 | INFO | filemate | Processing chunk 23/142
+2026-10-06 22:29:25,265 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:25,455 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:25,456 | INFO | filemate | Processing chunk 24/142
+2026-10-06 22:29:25,723 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:26,006 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:26,008 | INFO | filemate | Processing chunk 25/142
+2026-10-06 22:29:26,275 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:26,475 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:26,476 | INFO | filemate | Processing chunk 26/142
+2026-10-06 22:29:26,729 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:26,964 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:26,964 | INFO | filemate | Processing chunk 27/142
+2026-10-06 22:29:27,235 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:27,720 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:27,721 | INFO | filemate | Processing chunk 28/142
+2026-10-06 22:29:28,038 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:28,253 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:28,254 | INFO | filemate | Processing chunk 29/142
+2026-10-06 22:29:28,529 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:28,737 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:28,738 | INFO | filemate | Processing chunk 30/142
+2026-10-06 22:29:29,094 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:29,286 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:29,287 | INFO | filemate | Processing chunk 31/142
+2026-10-06 22:29:29,564 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:29,891 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:29,892 | INFO | filemate | Processing chunk 32/142
+2026-10-06 22:29:30,163 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:30,358 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:30,359 | INFO | filemate | Processing chunk 33/142
+2026-10-06 22:29:30,622 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:30,819 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:30,820 | INFO | filemate | Processing chunk 34/142
+2026-10-06 22:29:31,089 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:31,291 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:31,292 | INFO | filemate | Processing chunk 35/142
+2026-10-06 22:29:31,563 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:31,753 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:31,754 | INFO | filemate | Processing chunk 36/142
+2026-10-06 22:29:32,022 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:32,214 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:32,214 | INFO | filemate | Processing chunk 37/142
+2026-10-06 22:29:32,862 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:33,066 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:33,067 | INFO | filemate | Processing chunk 38/142
+2026-10-06 22:29:33,343 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:33,578 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:33,578 | INFO | filemate | Processing chunk 39/142
+2026-10-06 22:29:34,725 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:34,930 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:34,931 | INFO | filemate | Processing chunk 40/142
+2026-10-06 22:29:35,333 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:35,527 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:35,528 | INFO | filemate | Processing chunk 41/142
+2026-10-06 22:29:35,841 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:36,037 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:36,038 | INFO | filemate | Processing chunk 42/142
+2026-10-06 22:29:36,303 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:36,548 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:36,549 | INFO | filemate | Processing chunk 43/142
+2026-10-06 22:29:36,803 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:36,992 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:36,993 | INFO | filemate | Processing chunk 44/142
+2026-10-06 22:29:37,265 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:37,480 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:37,481 | INFO | filemate | Processing chunk 45/142
+2026-10-06 22:29:37,759 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:37,953 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:37,954 | INFO | filemate | Processing chunk 46/142
+2026-10-06 22:29:38,223 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:38,410 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:38,411 | INFO | filemate | Processing chunk 47/142
+2026-10-06 22:29:38,692 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:38,905 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:38,906 | INFO | filemate | Processing chunk 48/142
+2026-10-06 22:29:39,217 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:39,427 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:39,428 | INFO | filemate | Processing chunk 49/142
+2026-10-06 22:29:39,707 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:39,920 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:39,921 | INFO | filemate | Processing chunk 50/142
+2026-10-06 22:29:40,259 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:40,449 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:40,450 | INFO | filemate | Processing chunk 51/142
+2026-10-06 22:29:40,752 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:40,953 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:40,953 | INFO | filemate | Processing chunk 52/142
+2026-10-06 22:29:41,217 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:41,407 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:41,408 | INFO | filemate | Processing chunk 53/142
+2026-10-06 22:29:41,682 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:41,874 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:41,875 | INFO | filemate | Processing chunk 54/142
+2026-10-06 22:29:42,145 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:42,387 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:42,388 | INFO | filemate | Processing chunk 55/142
+2026-10-06 22:29:42,672 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:42,897 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:42,898 | INFO | filemate | Processing chunk 56/142
+2026-10-06 22:29:43,158 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:43,350 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:43,351 | INFO | filemate | Processing chunk 57/142
+2026-10-06 22:29:43,646 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:43,840 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:43,840 | INFO | filemate | Processing chunk 58/142
+2026-10-06 22:29:44,113 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:44,319 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:44,319 | INFO | filemate | Processing chunk 59/142
+2026-10-06 22:29:44,602 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:44,805 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:44,806 | INFO | filemate | Processing chunk 60/142
+2026-10-06 22:29:45,085 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:45,290 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:45,290 | INFO | filemate | Processing chunk 61/142
+2026-10-06 22:29:45,566 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:45,754 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:45,755 | INFO | filemate | Processing chunk 62/142
+2026-10-06 22:29:46,030 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:46,222 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:46,223 | INFO | filemate | Processing chunk 63/142
+2026-10-06 22:29:46,569 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:46,788 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:46,789 | INFO | filemate | Processing chunk 64/142
+2026-10-06 22:29:47,053 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:47,242 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:47,243 | INFO | filemate | Processing chunk 65/142
+2026-10-06 22:29:47,610 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:47,812 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:47,813 | INFO | filemate | Processing chunk 66/142
+2026-10-06 22:29:48,228 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:48,428 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:48,428 | INFO | filemate | Processing chunk 67/142
+2026-10-06 22:29:48,701 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:48,938 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:48,939 | INFO | filemate | Processing chunk 68/142
+2026-10-06 22:29:49,198 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:49,479 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:49,480 | INFO | filemate | Processing chunk 69/142
+2026-10-06 22:29:49,740 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:49,928 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:49,929 | INFO | filemate | Processing chunk 70/142
+2026-10-06 22:29:50,193 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:50,388 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:50,397 | INFO | filemate | Processing chunk 71/142
+2026-10-06 22:29:50,681 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:50,885 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:50,885 | INFO | filemate | Processing chunk 72/142
+2026-10-06 22:29:51,193 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:51,397 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:51,397 | INFO | filemate | Processing chunk 73/142
+2026-10-06 22:29:51,669 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:51,871 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:51,871 | INFO | filemate | Processing chunk 74/142
+2026-10-06 22:29:52,138 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:52,361 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:52,361 | INFO | filemate | Processing chunk 75/142
+2026-10-06 22:29:52,728 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:52,960 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:52,961 | INFO | filemate | Processing chunk 76/142
+2026-10-06 22:29:53,222 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:53,411 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:53,412 | INFO | filemate | Processing chunk 77/142
+2026-10-06 22:29:53,689 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:53,879 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:53,880 | INFO | filemate | Processing chunk 78/142
+2026-10-06 22:29:54,132 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:54,346 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:54,348 | INFO | filemate | Processing chunk 79/142
+2026-10-06 22:29:54,620 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:54,810 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:54,811 | INFO | filemate | Processing chunk 80/142
+2026-10-06 22:29:55,092 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:55,289 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:55,290 | INFO | filemate | Processing chunk 81/142
+2026-10-06 22:29:55,567 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:55,801 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:55,802 | INFO | filemate | Processing chunk 82/142
+2026-10-06 22:29:56,075 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:56,274 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:56,275 | INFO | filemate | Processing chunk 83/142
+2026-10-06 22:29:56,565 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:56,752 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:56,753 | INFO | filemate | Processing chunk 84/142
+2026-10-06 22:29:57,135 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:57,338 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:57,339 | INFO | filemate | Processing chunk 85/142
+2026-10-06 22:29:57,610 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:57,812 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:57,812 | INFO | filemate | Processing chunk 86/142
+2026-10-06 22:29:58,090 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:58,279 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:58,280 | INFO | filemate | Processing chunk 87/142
+2026-10-06 22:29:58,727 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:58,914 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:58,914 | INFO | filemate | Processing chunk 88/142
+2026-10-06 22:29:59,284 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:59,487 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:59,488 | INFO | filemate | Processing chunk 89/142
+2026-10-06 22:29:59,753 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:29:59,949 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:29:59,949 | INFO | filemate | Processing chunk 90/142
+2026-10-06 22:30:00,307 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:00,510 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:00,511 | INFO | filemate | Processing chunk 91/142
+2026-10-06 22:30:00,971 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:01,169 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:01,170 | INFO | filemate | Processing chunk 92/142
+2026-10-06 22:30:01,461 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:01,651 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:01,652 | INFO | filemate | Processing chunk 93/142
+2026-10-06 22:30:01,936 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:02,217 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:02,218 | INFO | filemate | Processing chunk 94/142
+2026-10-06 22:30:02,484 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:02,676 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:02,677 | INFO | filemate | Processing chunk 95/142
+2026-10-06 22:30:02,964 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:03,172 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:03,173 | INFO | filemate | Processing chunk 96/142
+2026-10-06 22:30:03,483 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:03,684 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:03,685 | INFO | filemate | Processing chunk 97/142
+2026-10-06 22:30:03,972 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:04,165 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:04,166 | INFO | filemate | Processing chunk 98/142
+2026-10-06 22:30:05,034 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:05,224 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:05,225 | INFO | filemate | Processing chunk 99/142
+2026-10-06 22:30:05,486 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:05,692 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:05,692 | INFO | filemate | Processing chunk 100/142
+2026-10-06 22:30:05,950 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:06,143 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:06,144 | INFO | filemate | Processing chunk 101/142
+2026-10-06 22:30:06,421 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:06,618 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:06,618 | INFO | filemate | Processing chunk 102/142
+2026-10-06 22:30:06,879 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:07,068 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:07,069 | INFO | filemate | Processing chunk 103/142
+2026-10-06 22:30:07,643 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:07,838 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:07,838 | INFO | filemate | Processing chunk 104/142
+2026-10-06 22:30:08,110 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:08,307 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:08,308 | INFO | filemate | Processing chunk 105/142
+2026-10-06 22:30:08,580 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:08,769 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:08,770 | INFO | filemate | Processing chunk 106/142
+2026-10-06 22:30:09,030 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:09,219 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:09,220 | INFO | filemate | Processing chunk 107/142
+2026-10-06 22:30:09,494 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:09,711 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:09,712 | INFO | filemate | Processing chunk 108/142
+2026-10-06 22:30:09,992 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:10,184 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:10,185 | INFO | filemate | Processing chunk 109/142
+2026-10-06 22:30:10,451 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:10,648 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:10,649 | INFO | filemate | Processing chunk 110/142
+2026-10-06 22:30:10,920 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:11,127 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:11,128 | INFO | filemate | Processing chunk 111/142
+2026-10-06 22:30:11,434 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:11,629 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:11,630 | INFO | filemate | Processing chunk 112/142
+2026-10-06 22:30:11,894 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:12,083 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:12,084 | INFO | filemate | Processing chunk 113/142
+2026-10-06 22:30:12,372 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:12,567 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:12,568 | INFO | filemate | Processing chunk 114/142
+2026-10-06 22:30:12,844 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:13,035 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:13,036 | INFO | filemate | Processing chunk 115/142
+2026-10-06 22:30:13,294 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:13,516 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:13,517 | INFO | filemate | Processing chunk 116/142
+2026-10-06 22:30:13,831 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:14,028 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:14,029 | INFO | filemate | Processing chunk 117/142
+2026-10-06 22:30:14,327 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:14,574 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:14,575 | INFO | filemate | Processing chunk 118/142
+2026-10-06 22:30:14,858 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:15,081 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:15,082 | INFO | filemate | Processing chunk 119/142
+2026-10-06 22:30:15,338 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:15,532 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:15,533 | INFO | filemate | Processing chunk 120/142
+2026-10-06 22:30:15,798 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:15,988 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:15,989 | INFO | filemate | Processing chunk 121/142
+2026-10-06 22:30:16,244 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:16,448 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:16,448 | INFO | filemate | Processing chunk 122/142
+2026-10-06 22:30:16,722 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:16,916 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:16,917 | INFO | filemate | Processing chunk 123/142
+2026-10-06 22:30:17,184 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:17,374 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:17,376 | INFO | filemate | Processing chunk 124/142
+2026-10-06 22:30:17,662 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:17,850 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:17,851 | INFO | filemate | Processing chunk 125/142
+2026-10-06 22:30:18,126 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:18,317 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:18,318 | INFO | filemate | Processing chunk 126/142
+2026-10-06 22:30:18,593 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:18,788 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:18,789 | INFO | filemate | Processing chunk 127/142
+2026-10-06 22:30:19,057 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:19,251 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:19,252 | INFO | filemate | Processing chunk 128/142
+2026-10-06 22:30:19,538 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:19,729 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:19,730 | INFO | filemate | Processing chunk 129/142
+2026-10-06 22:30:20,011 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:20,206 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:20,207 | INFO | filemate | Processing chunk 130/142
+2026-10-06 22:30:20,470 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:20,749 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:20,749 | INFO | filemate | Processing chunk 131/142
+2026-10-06 22:30:21,093 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:21,298 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:21,299 | INFO | filemate | Processing chunk 132/142
+2026-10-06 22:30:21,557 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:21,752 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:21,752 | INFO | filemate | Processing chunk 133/142
+2026-10-06 22:30:22,022 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:22,219 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:22,220 | INFO | filemate | Processing chunk 134/142
+2026-10-06 22:30:22,492 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:22,687 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:22,687 | INFO | filemate | Processing chunk 135/142
+2026-10-06 22:30:22,964 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:23,192 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:23,193 | INFO | filemate | Processing chunk 136/142
+2026-10-06 22:30:23,762 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:23,948 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:23,949 | INFO | filemate | Processing chunk 137/142
+2026-10-06 22:30:24,248 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:24,472 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:24,473 | INFO | filemate | Processing chunk 138/142
+2026-10-06 22:30:24,760 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:24,950 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:24,951 | INFO | filemate | Processing chunk 139/142
+2026-10-06 22:30:25,221 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:25,412 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:25,413 | INFO | filemate | Processing chunk 140/142
+2026-10-06 22:30:25,669 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:25,866 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:25,868 | INFO | filemate | Processing chunk 141/142
+2026-10-06 22:30:26,154 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:26,345 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:26,345 | INFO | filemate | Processing chunk 142/142
+2026-10-06 22:30:26,633 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:30:26,826 | INFO | httpx | HTTP Request: PUT https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points?wait=true "HTTP/1.1 200 OK"
+2026-10-06 22:30:26,827 | INFO | filemate | Upload completed successfully: RO_LEAVE RULES.pdf
+2026-10-06 22:30:26,828 | INFO | filemate | Temporary file removed
+2026-10-06 22:37:59,195 | INFO | filemate | ========================================
+2026-10-06 22:37:59,196 | INFO | filemate | FileMate application started
+2026-10-06 22:37:59,196 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:37:59,196 | INFO | filemate | ========================================
+2026-10-06 22:38:00,684 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:38:01,086 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:38:51,408 | INFO | filemate | ========================================
+2026-10-06 22:38:51,409 | INFO | filemate | FileMate application started
+2026-10-06 22:38:51,409 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:38:51,409 | INFO | filemate | ========================================
+2026-10-06 22:38:52,830 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:38:53,209 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:39:10,208 | INFO | filemate | ========================================
+2026-10-06 22:39:10,209 | INFO | filemate | FileMate application started
+2026-10-06 22:39:10,209 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:39:10,209 | INFO | filemate | ========================================
+2026-10-06 22:39:11,784 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:39:11,919 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:41:18,337 | INFO | filemate | ========================================
+2026-10-06 22:41:18,338 | INFO | filemate | FileMate application started
+2026-10-06 22:41:18,338 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:41:18,338 | INFO | filemate | ========================================
+2026-10-06 22:41:19,904 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:41:20,262 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:42:26,626 | INFO | filemate | ========================================
+2026-10-06 22:42:26,626 | INFO | filemate | FileMate application started
+2026-10-06 22:42:26,627 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:42:26,627 | INFO | filemate | ========================================
+2026-10-06 22:42:28,089 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:42:28,441 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:42:55,957 | INFO | filemate | ========================================
+2026-10-06 22:42:55,957 | INFO | filemate | FileMate application started
+2026-10-06 22:42:55,957 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:42:55,958 | INFO | filemate | ========================================
+2026-10-06 22:44:06,586 | INFO | filemate | ========================================
+2026-10-06 22:44:06,586 | INFO | filemate | FileMate application started
+2026-10-06 22:44:06,587 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:44:06,587 | INFO | filemate | ========================================
+2026-10-06 22:44:59,678 | INFO | filemate | ========================================
+2026-10-06 22:44:59,678 | INFO | filemate | FileMate application started
+2026-10-06 22:44:59,678 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:44:59,679 | INFO | filemate | ========================================
+2026-10-06 22:45:09,233 | INFO | filemate | ========================================
+2026-10-06 22:45:09,233 | INFO | filemate | FileMate application started
+2026-10-06 22:45:09,234 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:45:09,234 | INFO | filemate | ========================================
+2026-10-06 22:45:53,951 | INFO | filemate | ========================================
+2026-10-06 22:45:53,951 | INFO | filemate | FileMate application started
+2026-10-06 22:45:53,951 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:45:53,952 | INFO | filemate | ========================================
+2026-10-06 22:47:02,413 | INFO | filemate | ========================================
+2026-10-06 22:47:02,413 | INFO | filemate | FileMate application started
+2026-10-06 22:47:02,414 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:47:02,414 | INFO | filemate | ========================================
+2026-10-06 22:47:26,892 | INFO | filemate | ========================================
+2026-10-06 22:47:26,892 | INFO | filemate | FileMate application started
+2026-10-06 22:47:26,892 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:47:26,893 | INFO | filemate | ========================================
+2026-10-06 22:47:41,043 | INFO | filemate | ========================================
+2026-10-06 22:47:41,043 | INFO | filemate | FileMate application started
+2026-10-06 22:47:41,043 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:47:41,044 | INFO | filemate | ========================================
+2026-10-06 22:47:44,639 | INFO | filemate | ========================================
+2026-10-06 22:47:44,639 | INFO | filemate | FileMate application started
+2026-10-06 22:47:44,640 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:47:44,640 | INFO | filemate | ========================================
+2026-10-06 22:48:06,846 | INFO | filemate | ========================================
+2026-10-06 22:48:06,846 | INFO | filemate | FileMate application started
+2026-10-06 22:48:06,846 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:48:06,846 | INFO | filemate | ========================================
+2026-10-06 22:48:21,336 | INFO | filemate | ========================================
+2026-10-06 22:48:21,337 | INFO | filemate | FileMate application started
+2026-10-06 22:48:21,337 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:48:21,337 | INFO | filemate | ========================================
+2026-10-06 22:49:20,422 | INFO | filemate | ========================================
+2026-10-06 22:49:20,422 | INFO | filemate | FileMate application started
+2026-10-06 22:49:20,422 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:49:20,423 | INFO | filemate | ========================================
+2026-10-06 22:49:56,989 | INFO | filemate | ========================================
+2026-10-06 22:49:56,989 | INFO | filemate | FileMate application started
+2026-10-06 22:49:56,989 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:49:56,990 | INFO | filemate | ========================================
+2026-10-06 22:50:08,142 | INFO | filemate | ========================================
+2026-10-06 22:50:08,143 | INFO | filemate | FileMate application started
+2026-10-06 22:50:08,143 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:50:08,143 | INFO | filemate | ========================================
+2026-10-06 22:50:39,901 | INFO | filemate | ========================================
+2026-10-06 22:50:39,901 | INFO | filemate | FileMate application started
+2026-10-06 22:50:39,901 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:50:39,901 | INFO | filemate | ========================================
+2026-10-06 22:51:36,877 | INFO | filemate | ========================================
+2026-10-06 22:51:36,877 | INFO | filemate | FileMate application started
+2026-10-06 22:51:36,877 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:51:36,877 | INFO | filemate | ========================================
+2026-10-06 22:51:51,595 | INFO | filemate | ========================================
+2026-10-06 22:51:51,595 | INFO | filemate | FileMate application started
+2026-10-06 22:51:51,595 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:51:51,596 | INFO | filemate | ========================================
+2026-10-06 22:55:02,636 | INFO | filemate | ========================================
+2026-10-06 22:55:02,637 | INFO | filemate | FileMate application started
+2026-10-06 22:55:02,637 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:55:02,637 | INFO | filemate | ========================================
+2026-10-06 22:55:04,486 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:55:04,960 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:55:04,960 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:55:30,911 | INFO | filemate | ========================================
+2026-10-06 22:55:30,912 | INFO | filemate | FileMate application started
+2026-10-06 22:55:30,912 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:55:30,912 | INFO | filemate | ========================================
+2026-10-06 22:55:53,723 | INFO | filemate | ========================================
+2026-10-06 22:55:53,724 | INFO | filemate | FileMate application started
+2026-10-06 22:55:53,724 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:55:53,724 | INFO | filemate | ========================================
+2026-10-06 22:55:55,600 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:55:55,905 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:55:56,110 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:56:06,319 | INFO | filemate | ========================================
+2026-10-06 22:56:06,319 | INFO | filemate | FileMate application started
+2026-10-06 22:56:06,319 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:56:06,320 | INFO | filemate | ========================================
+2026-10-06 22:56:08,697 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:56:08,702 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:56:08,702 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:56:35,791 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:56:36,633 | INFO | httpx | HTTP Request: POST https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points/query "HTTP/1.1 200 OK"
+2026-10-06 22:56:42,422 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-10-06 22:59:30,430 | INFO | filemate | ========================================
+2026-10-06 22:59:30,431 | INFO | filemate | FileMate application started
+2026-10-06 22:59:30,431 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 22:59:30,432 | INFO | filemate | ========================================
+2026-10-06 22:59:31,927 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:59:32,277 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:59:32,652 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 22:59:45,836 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 22:59:46,614 | INFO | httpx | HTTP Request: POST https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points/query "HTTP/1.1 200 OK"
+2026-10-06 22:59:52,137 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-10-06 23:00:12,488 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 23:00:13,574 | INFO | httpx | HTTP Request: POST https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points/query "HTTP/1.1 200 OK"
+2026-10-06 23:00:16,895 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-10-06 23:01:36,990 | INFO | filemate | ========================================
+2026-10-06 23:01:36,990 | INFO | filemate | FileMate application started
+2026-10-06 23:01:36,990 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 23:01:36,991 | INFO | filemate | ========================================
+2026-10-06 23:01:38,644 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 23:01:38,886 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 23:01:39,251 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 23:04:10,302 | INFO | filemate | ========================================
+2026-10-06 23:04:10,303 | INFO | filemate | FileMate application started
+2026-10-06 23:04:10,303 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 23:04:10,303 | INFO | filemate | ========================================
+2026-10-06 23:04:11,765 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 23:04:12,142 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 23:04:12,535 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 23:04:57,842 | INFO | filemate | ========================================
+2026-10-06 23:04:57,843 | INFO | filemate | FileMate application started
+2026-10-06 23:04:57,843 | INFO | filemate | Log file: C:\Users\bhushan.singh\Desktop\Wapcos\filemate-rag\logs\filemate.log
+2026-10-06 23:04:57,843 | INFO | filemate | ========================================
+2026-10-06 23:04:59,344 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 23:04:59,862 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 23:05:00,245 | INFO | httpx | HTTP Request: GET https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-06 23:05:16,310 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 23:05:17,073 | INFO | httpx | HTTP Request: POST https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points/query "HTTP/1.1 200 OK"
+2026-10-06 23:05:22,827 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-10-06 23:05:55,478 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 23:05:56,279 | INFO | httpx | HTTP Request: POST https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points/query "HTTP/1.1 200 OK"
+2026-10-06 23:06:00,438 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2026-10-06 23:07:54,355 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-10-06 23:07:55,173 | INFO | httpx | HTTP Request: POST https://7f15d962-6e88-4f29-af14-55ba4d8c29f5.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/rag_documents/points/query "HTTP/1.1 200 OK"
+2026-10-06 23:07:58,279 | INFO | httpx2 | HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"

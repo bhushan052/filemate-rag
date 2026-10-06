@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FileMate RAG</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #222;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        #uploadStatus,
+        #result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            background: #f1f3f5;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>FileMate RAG</h1>
+
+    <p>
+        Technical / Project Document Assistant
+    </p>
+
+
+    <!-- ==============================
+         DOCUMENT UPLOAD
+    =============================== -->
+
+    <div class="section">
+
+        <h2>Upload Document</h2>
+
+        <input
+            type="file"
+            id="fileInput"
+            accept=".pdf,.docx"
+        >
+
+        <button
+            type="button"
+            onclick="uploadDocument()"
+        >
+            Upload PDF / DOCX
+        </button>
+
+        <div id="uploadStatus"></div>
+
+    </div>
+
+
+    <!-- ==============================
+         ASK QUESTION
+    =============================== -->
+
+    <div class="section">
+
+        <h2>Ask Question</h2>
+
+        <textarea
+            id="question"
+            rows="5"
+            placeholder="Example: What technologies are used in this project?"
+        ></textarea>
+
+        <button
+            type="button"
+            onclick="askQuestion()"
+        >
+            Ask Question
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     JAVASCRIPT
+================================ -->
+
+<script>
+
+async function uploadDocument() {
+
+    const fileInput =
+        document.getElementById("fileInput");
+
+    const status =
+        document.getElementById("uploadStatus");
+
+
+    // Check file
+    if (!fileInput.files.length) {
+
+        status.innerText =
+            "Please select a PDF or DOCX file.";
+
+        return;
+    }
+
+
+    const file =
+        fileInput.files[0];
+
+
+    // Check extension
+    const allowedExtensions = [
+        ".pdf",
+        ".docx"
+    ];
+
+    const fileName =
+        file.name.toLowerCase();
+
+    const validFile =
+        allowedExtensions.some(
+            extension =>
+                fileName.endsWith(extension)
+        );
+
+
+    if (!validFile) {
+
+        status.innerText =
+            "Only PDF and DOCX files are allowed.";
+
+        return;
+    }
+
+
+    // Create FormData
+    const formData =
+        new FormData();
+
+    formData.append(
+        "file",
+        file
+    );
+
+
+    status.innerText =
+        "Uploading and processing document...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/upload",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            status.innerText =
+                "Upload Error:\n" +
+                (data.detail ||
+                 "Document upload failed.");
+
+            return;
+        }
+
+
+        status.innerText =
+            "Document uploaded successfully!\n\n" +
+            "Document: " +
+            data.document +
+            "\n" +
+            "Chunks: " +
+            data.chunks;
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        status.innerText =
+            "Connection error:\n" +
+            error.message;
+    }
+}
+
+
+
+async function askQuestion() {
+
+    const question =
+        document
+            .getElementById("question")
+            .value
+            .trim();
+
+
+    const result =
+        document.getElementById("result");
+
+
+    if (!question) {
+
+        result.innerText =
+            "Please enter a question.";
+
+        return;
+    }
+
+
+    result.innerText =
+        "Searching document...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/ask",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        question: question
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            result.innerText =
+                "Error:\n" +
+                (data.detail ||
+                 "Question processing failed.");
+
+            return;
+        }
+
+
+        result.innerText =
+            "Direct Answer:\n" +
+            data.answer +
+
+            "\n\nExplanation:\n" +
+            data.explanation +
+
+            "\n\nRelevant Details:\n" +
+            data.details +
+
+            "\n\nSource:\n" +
+            data.source;
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        result.innerText =
+            "Connection error:\n" +
+            error.message;
+    }
+}
+
+</script>
+
+</body>
+</html>
