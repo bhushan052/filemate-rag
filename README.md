@@ -35,10 +35,10 @@ filemate-rag/
 │   │   ├── chunker.py
 │   │   ├── document_processor.py
 │   │   ├── embeddings.py
-│   │   └── vector_store.py
+│   │   └── qdrant.py
+|   |   └── llm.py 
 │   └── static/
 │       └── index.html
-├── uploads/
 ├── logs/
 ├── .env
 ├── requirements.txt
